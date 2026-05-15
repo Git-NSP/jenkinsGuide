@@ -1,0 +1,15 @@
+fdisk /dev/xvdb1 
+partprobe
+mkfs.xfs /dev/xvdb1
+mkdir /mntt
+mount /dev/xvdb1 /mnt
+df -h
+blkid /dev/nvme1n1p1
+nano /etc/fstab
+UUID=f1e294e6-7657-4761-bba5-bb2d0eab3936   /mnt xfs   defaults,nofail   0   0
+mount -a
+cd /mnt
+touch file1
+reboot
+df -h
+
